@@ -18,11 +18,10 @@ body {
     font-weight: 300;
 }
 h1 { 
-    font: 100px 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-    position: absolute; 
-    top: -54px; 
-    left: 976px; 
-    color: rgba(175, 47, 47, 0.15) 
+    font: 100px 'Helvetica Neue', Helvetica, Arial, sans-serif;  
+    color: rgba(175, 47, 47, 0.15);
+    margin-top: 10px;
+    text-align: center; 
 } 
 
 .newItem { 
@@ -66,6 +65,7 @@ input:focus, textarea:focus {outline: none;}
     -webkit-appearance: none;
     appearance: none;
 }
+
 input:placeholder-shown {
     border: none;
     font-style: oblique; 
@@ -79,9 +79,9 @@ li {
 .myList { 
     color: #4d4d4d;
     font-weight: 300;
-
+    position: relative;
     background: white;
-    
+  
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
                 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 } 
@@ -92,7 +92,7 @@ li {
     justify-content: center; 
     flex-direction: column; 
     background: #fff;
-    margin: 130px 0 40px 0;
+    margin-top: 7px; 
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 } 
 
@@ -107,13 +107,16 @@ li {
     -moz-appearance: none;
     appearance: none;
 }
+.todo-list {
+    margin-left: 30px;
+    margin-top: 16px;
+}
 .todo-list li {
     position: relative;
     font-size: 24px;
-}
-.todo-list li {
     list-style-type: none;
 }
+
 .todo-list span {
     margin-top: 5px;
     position: absolute;
@@ -132,20 +135,20 @@ li {
     line-height: 1.4em;
     height: 41px;
     position: relative;
-    margin-left: -1px;
-    margin-top: 58px;    
+    margin-top: 60px;    
     border-top: 1px solid #e6e6e6;
     font-color: #777;
+    text-align: center;
+    
 } 
 .filters {
     display: inline-block;
-    margin-left: 0px;
-    margin-top: 10px;
     width: 300px;
+    margin: 10px auto;
 }
 .filters li {
     display: inline-block;
-    padding-left: 5px;
+    padding-left: 2px;
    
 }
 .filters li a {
@@ -162,14 +165,14 @@ li {
     border-color: rgba(175, 47, 47, 0.2);
 }
 
-.upFooter a:hover {
+.upFooter li a:hover {
     border: 1px solid ;
-     border-color: rgba(175, 47, 47, 0.1); 
+    border-color: rgba(175, 47, 47, 0.1); 
     border-radius: 3px;
 }
 
-.upFooter:before {
-    content: ' '; 
+.threeLine {
+    content:' '; 
     position: absolute;
     right: 0;
     bottom: 0;
@@ -182,16 +185,12 @@ li {
                 0 16px 0 -6px #f6f6f6,
                 0 17px 2px -6px rgba(0, 0, 0, 0.2);
 } 
-.filters li a:hover:before {
-    border: 1px solid ;
-     border-color: rgba(175, 47, 47, 0.1); 
-    border-radius: 3px;
-}
-
+ 
 .count {
     position: absolute;
     margin-top: 10px;
     margin-left: 15px;
+    left: 0;
 }
 .filters ul {
     padding-left: 0px;
@@ -202,12 +201,11 @@ li {
     font-size: 10px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     text-align: center;
-    margin-top: 232px;
-    margin-left: 300px;
+    margin-top: 59px;
 }
 
 .downFooter p {
-    line-height: 1;
+    line-height: 2;
 }
 
 .downFooter a {
