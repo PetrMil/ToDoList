@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
+import { InputField } from './components/input.js';
+import { FullList } from './components/full.js';
+import { Article } from './components/article.js';
+import { Filters } from './components/filters.js';
 
 export class ToDoList extends React.Component {
   render() {
@@ -9,36 +13,18 @@ export class ToDoList extends React.Component {
 			<h1>todos</h1>
 			<div className='container'>
 			  	<div className='myList'>
-				  	<input type='checkbox' className='toggleAll' />
-				  	<input className='newItem'placeholder='What needs to be done?' />
-			  		<ul className='todo-list'>
-			  			<li>
-			  				<input type='checkbox' className='toggle' /> 
-			  				<label htmlFor='toggle'></label> <span>Первый пункт</span>
-			  			</li>
-			  		</ul>
-			  		<footer className='upFooter'>
-			  			<span className='count'>1 item left</span>
-			  			<ul className='filters'>
-			  				<li>
-			  				<a href="">All</a>
-			  				</li>
-			  				<li>
-			  				<a href="">Active</a>
-			  				</li>
-			  				<li>
-			  				<a href="">Completed</a>
-			  				</li>
-			  			</ul>
-			  		</footer>
+			  		<InputField />
+			  		<FullList />
+			  		<Article />
+			  		<Filters />
 			  		<div className='threeLine'></div>
-				  	</div>
+				</div>
 			</div>
-				<footer className='downFooter'>
-					<p>Double-click to edit a todo</p>
-					<p>Created by <a href="">petehunt</a></p>
-					<p>Part of <a href="">TodoMVC</a></p>
-				</footer>
+			<footer className='downFooter'>
+				<p>Double-click to edit a todo</p>
+				<p>Created by <a href="">petehunt</a></p>
+				<p>Part of <a href="">TodoMVC</a></p>
+			</footer>
 		</div>
 	)
   }
