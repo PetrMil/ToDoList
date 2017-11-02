@@ -15,7 +15,6 @@ export class ToDoList extends React.Component {
 			  	<div className='myList'>
 			  		<InputField />
 			  		<FullList />
-			  		<Article />
 			  		<Filters />
 			  		<div className='threeLine'></div>
 				</div>
