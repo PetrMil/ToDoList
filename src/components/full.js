@@ -1,18 +1,14 @@
 import React from 'react';
 import { Article } from './article.js';
+import { ToDoList } from '../todolist.js';
 
 export class FullList extends React.Component {
-/*	constructor(props) {
-    super(props);
-    this.state = {
-     todolist : []
-    }
-  }*/
+
 	render() {
 		return(
 			<div>
 				<ul className='todo-list'>
-     				<Article />
+     				<Article userInput={this.props.userInput}/> 
      			</ul>	
 			</div>
 		);
