@@ -8,7 +8,7 @@ export class Article extends React.Component {
 		return(
 			<li>
 				<input type='checkbox' className='toggle' /> 
-		  		<label htmlFor='toggle'> {this.props.userInput} </label> 
+		  		<label htmlFor='toggle'> {this.props.article.title} </label> 
   			</li>
 		);
 	}

@@ -12,7 +12,13 @@ export class ToDoList extends React.Component {
 
     	super(props);
     
-    	this.state = { userInput: '' };
+    	this.state = { 
+
+    		userInput: '',
+
+    		articles: []
+
+    	 };
 
     	this.onNewItemCreated = this.onNewItemCreated.bind(this);
     
@@ -20,11 +26,22 @@ export class ToDoList extends React.Component {
 
 	onNewItemCreated(newUserInput) {
     	
+    	var article = {
+
+    		title: newUserInput,
+
+    		completed: false
+    	}
+		var articles = this.state.articles
+
+		var newArticles = [article]
+
     	this.setState({
-      
-      		userInput: newUserInput
-    	
-    	});
+
+    		articles: articles.concat(newArticles)
+				
+		})
+		console.log(this.state.articles)
 	}
 
   	render() {
@@ -34,7 +51,7 @@ export class ToDoList extends React.Component {
 				<div className='container'>
 				  	<div className='myList'>
 				  		<InputField onChange={this.onNewItemCreated}/>
-				  		<FullList userInput={this.state.userInput}/>
+				  		<FullList articles={this.state.articles}/>
 				  		<Filters />
 				  		<div className='threeLine'></div>
 					</div>

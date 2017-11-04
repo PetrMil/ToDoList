@@ -5,24 +5,45 @@ export class InputField extends React.Component {
 	
 	constructor(props) {
 
-    super(props);
+    	super(props);
     
- 	this.handleUserInput = this.handleUserInput.bind(this);
+		this.state = {
 
+			text: ''
+
+		} 		
+
+ 		this.handleUserInput = this.handleUserInput.bind(this);
+
+		
 	}
 
 	handleUserInput(e) { 
 		if (e.key === 'Enter') {
-			const userInput = e.target.value;	
-			this.props.onChange(userInput);
-		}
+			this.props.onChange(this.state.text);
+			
+			this.setState({
+
+				text : ''
+
+			}) 
+		};
 	} 
+
+	handleChange(e) {
+
+		this.setState({
+
+			text : e.target.value
+
+		}) 
+	}
 
 	render() {
 		return(
 			<div>
 				<input type='checkbox' className='toggleAll' />
-				<input className='newItem' placeholder='What needs to be done?' onKeyPress={this.handleUserInput} />
+				<input className='newItem' placeholder='What needs to be done?' value={this.state.text} onChange={(e) => this.handleChange(e)} onKeyPress={this.handleUserInput} />
 			</div>
 		);
 	}
