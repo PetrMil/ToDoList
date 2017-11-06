@@ -1,11 +1,12 @@
 import React from 'react';
+import { ToDoList } from '../todolist.js'
 
 export class Filters extends React.Component {
 	render() {
 		return(
 			<div>
 				<footer className='upFooter'>
-		  			<span className='count'>1 item left</span>
+		  			<span className='count'>{this.props.quantity} item left</span>
 		  			<ul className='filters'>
 		  				<li>
 		  				<a href="">All</a>

@@ -14,14 +14,24 @@ export class ToDoList extends React.Component {
     
     	this.state = { 
 
-    		userInput: '',
+    		quantity: 0,
 
-    		articles: []
+    		articles: [],
+
+    		completeItem: false
 
     	 };
 
     	this.onNewItemCreated = this.onNewItemCreated.bind(this);
-    
+
+    	this.itemDone = this.itemDone.bind(this)   
+	}
+
+	itemDone() {
+		this.setState({
+			completeItem: !this.state.completeItem
+		})
+		console.log(this.state.completeItem)
 	}
 
 	onNewItemCreated(newUserInput) {
@@ -31,17 +41,22 @@ export class ToDoList extends React.Component {
     		title: newUserInput,
 
     		completed: false
+
     	}
+
 		var articles = this.state.articles
 
 		var newArticles = [article]
 
+		var quantity = this.state.quantity
+
     	this.setState({
 
-    		articles: articles.concat(newArticles)
+    		articles: articles.concat(newArticles),
+
+    		quantity: quantity + 1
 				
 		})
-		console.log(this.state.articles)
 	}
 
   	render() {
@@ -51,8 +66,8 @@ export class ToDoList extends React.Component {
 				<div className='container'>
 				  	<div className='myList'>
 				  		<InputField onChange={this.onNewItemCreated}/>
-				  		<FullList articles={this.state.articles}/>
-				  		<Filters />
+				  		<FullList articles={this.state.articles} itemDone={this.itemDone}/>
+				  		<Filters quantity={this.state.quantity}/>
 				  		<div className='threeLine'></div>
 					</div>
 				</div>

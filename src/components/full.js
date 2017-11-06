@@ -6,12 +6,11 @@ export class FullList extends React.Component {
 	
 	render() {
 
-
 		var articles = this.props.articles;
 		
 		var html = articles.map((b) =>{
 			return (
-				<Article article={b}/>
+				<Article article={b} itemDone={this.props.itemDone}/>
 			)
 		})
 		return(

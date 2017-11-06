@@ -19,7 +19,9 @@ export class InputField extends React.Component {
 	}
 
 	handleUserInput(e) { 
+
 		if (e.key === 'Enter') {
+			
 			this.props.onChange(this.state.text);
 			
 			this.setState({
