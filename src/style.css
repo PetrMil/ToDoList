@@ -145,6 +145,7 @@ li {
     display: inline-block;
     width: 300px;
     margin: 10px auto;
+    z-index: 1000;
 }
 .filters li {
     display: inline-block;
@@ -171,7 +172,7 @@ li {
     border-radius: 3px;
 }
 
-.threeLine {
+ .threeLine {
     content:' '; 
     position: absolute;
     right: 0;
@@ -184,8 +185,9 @@ li {
                 0 9px 1px -3px rgba(0, 0, 0, 0.2),
                 0 16px 0 -6px #f6f6f6,
                 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+   
 } 
- 
+  
 .count {
     position: absolute;
     margin-top: 10px;
@@ -214,5 +216,41 @@ li {
 }
 
 .downFooter a:hover {
+    text-decoration: underline;
+}
+
+.destroy { 
+    display: block; 
+    position: absolute; 
+    top: 0; 
+    right: 10px; 
+    bottom: 0; 
+    width: 40px; 
+    height: 40px; 
+    margin: auto 0; 
+    font-size: 30px; 
+    color: #cc9a9a; 
+    margin-bottom: 11px; 
+    background-color: white;
+    border: none; 
+} 
+
+.destroy:after { 
+    content: '×'; 
+} 
+
+.destroy:hover { 
+    color: #af5b5e; 
+}
+
+.clear-completed {
+    position: absolute;
+    right: 14px;
+    top: 11px;
+    cursor: pointer;
+    color: #777;
+    font-size: 14px; 
+}
+.clear-completed:hover {
     text-decoration: underline;
 }

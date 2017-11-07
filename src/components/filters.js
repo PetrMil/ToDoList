@@ -18,6 +18,9 @@ export class Filters extends React.Component {
 		  				<a href="">Completed</a>
 		  				</li>
 		  			</ul>
+		  			<buton className='clear-completed'>
+		  				Clear completed
+		  			</buton>
 			  	</footer>
 			</div>
 		);
