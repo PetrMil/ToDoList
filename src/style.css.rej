@@ -1,0 +1,17 @@
+diff a/src/style.css b/src/style.css	(rejected hunks)
+@@ -173,12 +173,13 @@
+ }
+ 
+  .three-line {
+-    background-image: url('/image/three-line.png'); 
++    background-image: url(/image/three-line.png);
+     width: 100%;
+     height: 15%;
+     position: absolute;
+     top: 105px;
+-    background-size: 100px 100px;
++    background-repeat: no-repeat;
++    background-size: contain;
+ } 
+     /*     content:' '; 
+ position: absolute;
