@@ -44,8 +44,8 @@ export class InputField extends React.Component {
 	render() {
 		return(
 			<div>
-				<input type='checkbox' className='toggleAll' />
-				<input className='newItem' placeholder='What needs to be done?' value={this.state.text} onChange={(e) => this.handleChange(e)} onKeyPress={this.handleUserInput} />
+				<input type='checkbox' className='toggle-all' />
+				<input className='new-item' placeholder='What needs to be done?' value={this.state.text} onChange={(e) => this.handleChange(e)} onKeyPress={this.handleUserInput} />
 			</div>
 		);
 	}

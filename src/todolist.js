@@ -64,14 +64,14 @@ export class ToDoList extends React.Component {
 			<div>
 				<h1>todos</h1>
 				<div className='container'>
-				  	<div className='myList'>
+				  	<div className='my-list'>
 				  		<InputField onChange={this.onNewItemCreated}/>
 				  		<FullList articles={this.state.articles} itemDone={this.itemDone}/>
 				  		<Filters quantity={this.state.quantity}/>
-				  		<div className='threeLine'></div>
+				  		<div className='three-line'></div>
 					</div>
 				</div>
-				<footer className='downFooter'>
+				<footer className='down-footer'>
 					<p>Double-click to edit a todo</p>
 					<p>Created by <a href="">petehunt</a></p>
 					<p>Part of <a href="">TodoMVC</a></p>

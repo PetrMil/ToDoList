@@ -5,7 +5,7 @@ export class Filters extends React.Component {
 	render() {
 		return(
 			<div>
-				<footer className='upFooter'>
+				<footer className='up-footer'>
 		  			<span className='count'>{this.props.quantity} item left</span>
 		  			<ul className='filters'>
 		  				<li>
@@ -18,10 +18,10 @@ export class Filters extends React.Component {
 		  				<a href="">Completed</a>
 		  				</li>
 		  			</ul>
-		  			<buton className='clear-completed'>
-		  				Clear completed
-		  			</buton>
-			  	</footer>
+		  			<button className='clear-completed'>
+		  			 	Clear completed
+		  			</button>
+		  		</footer>
 			</div>
 		);
 	}
