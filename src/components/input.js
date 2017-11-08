@@ -14,13 +14,12 @@ export class InputField extends React.Component {
 		} 		
 
  		this.handleUserInput = this.handleUserInput.bind(this);
-
-		
+	
 	}
 
 	handleUserInput(e) { 
 
-		if (e.key === 'Enter') {
+		if ((e.key === 'Enter') && (this.state.text)){
 			
 			this.props.onChange(this.state.text);
 			
