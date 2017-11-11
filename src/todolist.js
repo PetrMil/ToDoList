@@ -18,13 +18,14 @@ export class ToDoList extends React.Component {
 
     		articles: [],
 
-    		completeItem: false
+    		completeItem: false,
 
     	 };
 
     	this.onNewItemCreated = this.onNewItemCreated.bind(this);
 
-    	this.itemDone = this.itemDone.bind(this)   
+    	this.itemDone = this.itemDone.bind(this);
+
 	}
 
 	itemDone() {
@@ -34,9 +35,10 @@ export class ToDoList extends React.Component {
 		console.log(this.state.completeItem)
 	}
 
+
 	onNewItemCreated(newUserInput) {
     	
-    	var article = {
+       	var article = {
 
     		title: newUserInput,
 
@@ -50,14 +52,17 @@ export class ToDoList extends React.Component {
 
 		var quantity = this.state.quantity
 
-    	this.setState({
+		
+		  	this.setState({
 
     		articles: articles.concat(newArticles),
 
-    		quantity: quantity + 1
+    		quantity: quantity + 1,
+    		
 				
 		})
 	}
+	
 	
   	render() {
   		return(
@@ -65,10 +70,10 @@ export class ToDoList extends React.Component {
 				<h1>todos</h1>
 				<div className='container'>
 				  	<div className='my-list'>
-				  		<InputField onChange={this.onNewItemCreated}/>
-				  		<FullList articles={this.state.articles} itemDone={this.itemDone}/>
-				  		<Filters quantity={this.state.quantity}/>
-				  		<div className='three-line'></div>
+				  		<InputField onChange={this.onNewItemCreated} active={this.state.active} />
+				  		<FullList articles={this.state.articles} completeItem={this.state.completeItem} itemDone={this.itemDone}/>
+				  		{this.state.articles.length > 0 ? <Filters quantity={this.state.quantity} />:''}
+				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}
 					</div>
 				</div>
 				<footer className='down-footer'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Article } from '../components/article.js';
 
+
 export class InputField extends React.Component {
 	
 	constructor(props) {
@@ -9,7 +10,9 @@ export class InputField extends React.Component {
     
 		this.state = {
 
-			text: ''
+			text: '',
+
+			visibileItem: 'hidden'
 
 		} 		
 
@@ -25,7 +28,9 @@ export class InputField extends React.Component {
 			
 			this.setState({
 
-				text : ''
+				text : '',
+
+				visibileItem: 'visible'
 
 			}) 
 		};
@@ -43,8 +48,8 @@ export class InputField extends React.Component {
 	render() {
 		return(
 			<div>
-				<input type='checkbox' className='toggle-all' />
-				<input className='new-item' placeholder='What needs to be done?' value={this.state.text} onChange={(e) => this.handleChange(e)} onKeyPress={this.handleUserInput} />
+				<input type='checkbox' className='toggle-all' style={{visibility: this.state.visibileItem}}/>
+				<input className='new-item' placeholder='What needs to be done?'  value={this.state.text} onChange={(e) => this.handleChange(e)} onKeyPress={this.handleUserInput} />
 			</div>
 		);
 	}

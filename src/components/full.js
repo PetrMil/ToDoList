@@ -10,7 +10,7 @@ export class FullList extends React.Component {
 		
 		var html = articles.map((b) =>{
 			return (
-				<Article article={b} itemDone={this.props.itemDone}/>
+				<Article article={b} itemDone={this.props.itemDone} completeItem={this.props.completeItem}/>
 			)
 		})
 		return(

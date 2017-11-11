@@ -3,28 +3,14 @@ import { ToDoList } from '../todolist.js'
 
 export class Filters extends React.Component {
 		
-/*		quantityCount(quantity) {
-			
-			var quantity=this.props.quantity
-
-			var item = 'item left'
-			
-			var items = 'items left'
-			
-			if (quantity > 1) {
-				return items
-			} else {
-				return item
-			}
-		}*/
-
 	render() {
 
-
+		var quantity = this.props.quantity
+		
 		return(
 			<div>
-				<footer className='up-footer'>
-		  			<span className='count' >{this.props.quantity} items left</span>
+				<footer className='up-footer' >
+		  			<span className='count' >{quantity <= 1 ? (quantity + ' item left') : (quantity + ' items left')} </span>
 		  			<ul className='filters'>
 		  				<li>
 		  				<a href="">All</a>
