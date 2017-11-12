@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import { InputField } from './components/input.js';
 import { FullList } from './components/full.js';
-import { Article } from './components/article.js';
+/*import { Article } from './components/article.js';*/
 import { Filters } from './components/filters.js';
 
 export class ToDoList extends React.Component {
@@ -28,21 +28,31 @@ export class ToDoList extends React.Component {
 
 	}
 
-	itemDone() {
+	
+	itemDone(completeItem) {
+
+		/*var quantity = this.state.quantity*/
+
 		this.setState({
-			completeItem: !this.state.completeItem
+
+			completeItem: !this.state.completeItem,
+
+		/*	quantity: quantity - 1*/
+		
 		})
+
 		console.log(this.state.completeItem)
 	}
 
-
 	onNewItemCreated(newUserInput) {
     	
+       	var completeItem = this.state.completeItem 
+
        	var article = {
 
     		title: newUserInput,
 
-    		completed: false
+    		completed: completeItem
 
     	}
 
@@ -57,12 +67,11 @@ export class ToDoList extends React.Component {
 
     		articles: articles.concat(newArticles),
 
-    		quantity: quantity + 1,
-    		
+    		quantity: quantity + 1,  		
 				
 		})
 	}
-	
+
 	
   	render() {
   		return(
@@ -70,7 +79,7 @@ export class ToDoList extends React.Component {
 				<h1>todos</h1>
 				<div className='container'>
 				  	<div className='my-list'>
-				  		<InputField onChange={this.onNewItemCreated} active={this.state.active} />
+				  		<InputField onChange={this.onNewItemCreated}  />
 				  		<FullList articles={this.state.articles} completeItem={this.state.completeItem} itemDone={this.itemDone}/>
 				  		{this.state.articles.length > 0 ? <Filters quantity={this.state.quantity} />:''}
 				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}

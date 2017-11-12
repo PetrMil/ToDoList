@@ -258,3 +258,13 @@ li {
 .clear-completed:hover {
     text-decoration: underline;
 }
+
+.completed {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+.non-completed {
+    color: inherit;
+    text-decoration: none;
+}
