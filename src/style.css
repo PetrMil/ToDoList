@@ -216,7 +216,7 @@ li {
 }
 
 .destroy { 
-    display: block; 
+    display: none; 
     position: absolute; 
     top: 0; 
     right: 10px; 
@@ -230,6 +230,10 @@ li {
     background-color: inherit;
     border: none; 
 } 
+
+.article:hover .destroy {
+    display: block;
+}
 
 .destroy:after { 
     content: '×'; 

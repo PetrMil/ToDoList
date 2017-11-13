@@ -5,6 +5,7 @@ import { InputField } from './components/input.js';
 import { FullList } from './components/full.js';
 /*import { Article } from './components/article.js';*/
 import { Filters } from './components/filters.js';
+import _ from 'lodash';
 
 export class ToDoList extends React.Component {
 	
@@ -16,9 +17,7 @@ export class ToDoList extends React.Component {
 
     		quantity: 0,
 
-    		articles: [],
-
-    		completeItem: false,
+    		articles: []
 
     	 };
 
@@ -31,18 +30,25 @@ export class ToDoList extends React.Component {
 	
 	itemDone(completeItem) {
 
-		/*var quantity = this.state.quantity*/
+		var newArticles = this.state.articles.map((b) =>{ 
+			if (completeItem.title != b.title) {
+				return b
+			} else {
+				return {
+					title: completeItem.title,
 
-		this.setState({
-
-			completeItem: !this.state.completeItem,
-
-		/*	quantity: quantity - 1*/
-		
+					completed: !completeItem.completed
+				}
+			}
 		})
 
-		console.log(this.state.completeItem)
+		this.setState({
+			articles: newArticles
+		})
+
 	}
+
+
 
 	onNewItemCreated(newUserInput) {
     	

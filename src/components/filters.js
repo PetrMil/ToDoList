@@ -10,7 +10,7 @@ export class Filters extends React.Component {
 		return(
 			<div>
 				<footer className='up-footer' >
-		  			<span className='count' >{quantity <= 1 ? (quantity + ' item left') : (quantity + ' items left')} </span>
+		  			<span className='count' >{quantity + (quantity <= 1 ? ' item':' items') +' left'} </span>
 		  			<ul className='filters'>
 		  				<li>
 		  				<a href="">All</a>
