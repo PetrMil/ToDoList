@@ -4,9 +4,14 @@ import { ToDoList } from '../todolist.js'
 export class Filters extends React.Component {
 		
 	render() {
-
-		var quantity = this.props.quantity
 		
+		var listComplete = this.props.articles.filter((article) => {
+			return article.completed === false
+		})
+		var quantity = listComplete.length
+		
+		var button = <button onClick={() => this.props.listCompleted()} className='clear-completed'> Clear completed </button>
+
 		return(
 			<div>
 				<footer className='up-footer' >
@@ -22,9 +27,7 @@ export class Filters extends React.Component {
 		  				<a href="">Completed</a>
 		  				</li>
 		  			</ul>
-		  			<button className='clear-completed'>
-		  			 	Clear completed
-		  			</button>
+		  		{this.props.articles.length !== quantity ? button:''}			  			
 		  		</footer>
 			</div>
 		);

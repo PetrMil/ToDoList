@@ -8,86 +8,98 @@ import { Filters } from './components/filters.js';
 import _ from 'lodash';
 
 export class ToDoList extends React.Component {
-	
+
 	constructor(props) {
-
     	super(props);
-    
-    	this.state = { 
-
-    		quantity: 0,
-
+      	this.state = { 
     		articles: []
-
     	 };
-
     	this.onNewItemCreated = this.onNewItemCreated.bind(this);
-
     	this.itemDone = this.itemDone.bind(this);
-
+    	this.clearCompleted = this.clearCompleted.bind(this);
+    	this.allCompleted = this.allCompleted.bind(this);
+		this.destroyItem = this.destroyItem.bind(this);
 	}
 
 	
 	itemDone(completeItem) {
-
 		var newArticles = this.state.articles.map((b) =>{ 
-			if (completeItem.title != b.title) {
+			if (completeItem.id !== b.id) {
 				return b
 			} else {
 				return {
 					title: completeItem.title,
-
-					completed: !completeItem.completed
+					completed: !completeItem.completed,
+					id:completeItem.id
 				}
 			}
 		})
-
 		this.setState({
 			articles: newArticles
 		})
 
 	}
-
-
-
-	onNewItemCreated(newUserInput) {
-    	
-       	var completeItem = this.state.completeItem 
-
-       	var article = {
-
-    		title: newUserInput,
-
-    		completed: completeItem
-
-    	}
-
-		var articles = this.state.articles
-
-		var newArticles = [article]
-
-		var quantity = this.state.quantity
-
-		
-		  	this.setState({
-
-    		articles: articles.concat(newArticles),
-
-    		quantity: quantity + 1,  		
-				
+	
+	allCompleted() {
+		var areAllCompleted = this.state.articles.every(element => element.completed)
+		var newArticles = this.state.articles.map((element) =>{ 
+			return {
+				title: element.title,
+				completed: !areAllCompleted,
+				id:element.id
+			}
+		})	
+		this.setState({
+			articles: newArticles
 		})
 	}
 
-	
+	clearCompleted() {
+
+		var listComplete = this.state.articles.filter((article) => {
+			return article.completed === false
+		})
+		this.setState({
+			articles: listComplete
+		})
+		
+	}
+
+	onNewItemCreated(newUserInput) {
+       	var articles = this.state.articles //нынешнее состояние(изначально пустое)
+		var maximum = Math.max(...articles.map((o) => {return (o.id)}));
+		maximum = maximum < 0 ? 0: maximum ;
+		var currentId = maximum + 1;
+       	var article = {
+    		title: newUserInput,
+    		completed: false,
+    		id: currentId
+    	}
+		var newArticles = [article] // один артикл обернули в массив
+	  	this.setState({
+    		articles: articles.concat(newArticles)  		
+		})
+
+	}
+
+	destroyItem(element) {
+		var newArticles = this.state.articles.filter((article) => {
+			return element.id !== article.id
+		})
+		this.setState({
+			articles: newArticles
+		})		
+	}
+
   	render() {
   		return(
 			<div>
 				<h1>todos</h1>
 				<div className='container'>
 				  	<div className='my-list'>
-				  		<InputField onChange={this.onNewItemCreated}  />
-				  		<FullList articles={this.state.articles} completeItem={this.state.completeItem} itemDone={this.itemDone}/>
-				  		{this.state.articles.length > 0 ? <Filters quantity={this.state.quantity} />:''}
+				  		<InputField onChange={this.onNewItemCreated} allCompleted={this.allCompleted} />
+				  		<FullList articles={this.state.articles}  itemDone={this.itemDone} destroyItem={this.destroyItem} />
+				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} listCompleted={this.clearCompleted} />:''}
 				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}
 					</div>
 				</div>
