@@ -9,7 +9,7 @@ export class FullList extends React.Component {
 		var articles = this.props.articles;
 		var html = articles.map((b) =>{
 			return (
-				<Article article={b} key={b.id} itemDone={this.props.itemDone} destroyItem={this.props.destroyItem} />
+				<Article article={b} key={b.id} itemDone={this.props.itemDone} passInput={this.props.passInput} destroyItem={this.props.destroyItem} />
 			)
 		})
 

@@ -132,12 +132,18 @@ li {
     position: relative;
     font-size: 24px;
     list-style-type: none;
-    border-bottom: 1px solid #ededed;
+   
     padding: 20px;
 }
 
 .todo-list label {
-    margin-left: 40px;
+    margin-left: -20px;
+    border-bottom: 1px solid #ededed;
+    height: auto;
+    width: 104%;
+    display: block;
+    padding-bottom: 17px;
+    padding-left: 52px;
 }
 .todo-list li .toggle:after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');

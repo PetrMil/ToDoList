@@ -32,7 +32,7 @@ export class InputField extends React.Component {
 	render() {
 		return( 
 			<div>
-				<input type='checkbox' className='toggle-all' onClick={() => {this.props.allCompleted(); console.log(5)}} style={{visibility: this.state.visibileItem}}/>
+				<input type='checkbox' className='toggle-all' onClick={() => this.props.allCompleted()} style={{visibility: this.state.visibileItem}}/>
 				<input className='new-item' placeholder='What needs to be done?'  value={this.state.text} onChange={(e) => this.handleChange(e)} onKeyPress={this.handleUserInput} />
 			</div>
 		);
