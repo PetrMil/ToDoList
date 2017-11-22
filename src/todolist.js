@@ -19,6 +19,7 @@ export class ToDoList extends React.Component {
     	this.clearCompleted = this.clearCompleted.bind(this);
     	this.allCompleted = this.allCompleted.bind(this);
 		this.destroyItem = this.destroyItem.bind(this);
+		this.passInput = this.passInput.bind(this);
 	}
 
 	
@@ -91,6 +92,19 @@ export class ToDoList extends React.Component {
 		})		
 	}
 
+	passInput(newInput) {
+		var newArticles = this.state.articles.map((b) =>{ 
+			return {
+			title: newInput,
+    		completed: b.completed,
+    		id: b.id
+			}
+		})
+		this.setState({
+			articles: newArticles
+		})		
+	}	
+
   	render() {
   		return(
 			<div>
@@ -98,7 +112,7 @@ export class ToDoList extends React.Component {
 				<div className='container'>
 				  	<div className='my-list'>
 				  		<InputField onChange={this.onNewItemCreated} allCompleted={this.allCompleted} />
-				  		<FullList articles={this.state.articles}  itemDone={this.itemDone} destroyItem={this.destroyItem} />
+				  		<FullList articles={this.state.articles} passInput={this.passInput} itemDone={this.itemDone} destroyItem={this.destroyItem} />
 				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} listCompleted={this.clearCompleted} />:''}
 				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}
 					</div>

@@ -5,7 +5,8 @@ export class Article extends React.Component {
 	constructor(props) {
     	super(props);
     		this.state = {
-			editMode: false
+			editMode: false,
+			newInput: this.props.article.title
 		} 		
  	}
 	handleClick() {
@@ -13,11 +14,27 @@ export class Article extends React.Component {
 			editMode: true
 		})
 	}
-	render() {
 
-		var title = this.state.editMode ? <input type="text"  className="edit" value={this.props.article.title} /> :
+	handleChange(e){
+		this.setState({
+			newInput : e.target.value
+		}) 
+	}
+
+	passInput(e){
+		if (e.key === 'Enter'){
+			this.props.passInput(this.state.newInput);
+			this.setState ({
+				editMode: false
+			})
+		}	
+	}
+
+		render() {
+
+		var title = this.state.editMode ? <input type="text" onChange={(e) => this.handleChange(e)} onKeyPress={(e) => this.passInput(e)} value={this.state.newInput} className="edit"  /> :
 			[
-			<label onDoubleClick={() => this.handleClick()} htmlFor='toggle' className={this.props.article.completed ? 'completed': 'non-completed'}> {this.props.article.title} </label>,
+			<label onDoubleClick={() => this.handleClick()} htmlFor='toggle' className={this.props.article.completed ? 'completed': 'non-completed'}> {this.state.newInput} </label>,
 			<button className='destroy' onClick={() => this.props.destroyItem(this.props.article)}></button>
 			]
 		return(
