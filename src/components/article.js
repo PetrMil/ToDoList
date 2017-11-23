@@ -34,7 +34,7 @@ export class Article extends React.Component {
 
 		var title = this.state.editMode ? <input type="text" onChange={(e) => this.handleChange(e)} onKeyPress={(e) => this.passInput(e)} value={this.state.newInput} className="edit"  /> :
 			[
-			<label onDoubleClick={() => this.handleClick()} htmlFor='toggle' className={this.props.article.completed ? 'completed': 'non-completed'}> {this.props.article.title} </label>,
+			<label onDoubleClick={() => this.handleClick()} htmlFor='toggle' className={this.props.article.completed ? 'completed': 'non-completed'}> {this.state.newInput} </label>,
 			<button className='destroy' onClick={() => this.props.destroyItem(this.props.article)}></button>
 			]
 		return(

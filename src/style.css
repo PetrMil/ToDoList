@@ -139,12 +139,13 @@ li {
 .todo-list label {
     margin-left: -20px;
     border-bottom: 1px solid #ededed;
-    height: auto;
-    width: 104%;
+    width: 100%;
     display: block;
-    padding-bottom: 17px;
-    padding-left: 52px;
+    padding-bottom: 18px;
+    padding-left: 60px;
+    line-height: 24px;
 }
+
 .todo-list li .toggle:after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
 }
@@ -153,17 +154,17 @@ li {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 
- .up-footer {
+.up-footer {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
     height: 40px;
     position: relative;
-    margin-top: -2px;
+    margin-top: 3px;
     border-top: 1px solid #e6e6e6;
     font-color: #777;
     text-align: center;
-    
-} 
+}
+
 .filters {
     display: inline-block;
     width: 300px;

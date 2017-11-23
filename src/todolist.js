@@ -95,19 +95,16 @@ export class ToDoList extends React.Component {
 	passInput(newInput) {
 		var newArticles = this.state.articles.map((b) =>{ 
 			return {
-					title: newInput.title,
-					completed: b.completed,
-					id:b.id
-				}
-			})
-	}
+			title: newInput,
+    		completed: b.completed,
+    		id: b.id
+			}
+		})
 		this.setState({
 			articles: newArticles
-		})
-			
-	}
-	
-	
+		})		
+	}	
+
   	render() {
   		return(
 			<div>
