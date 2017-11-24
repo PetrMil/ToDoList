@@ -18,13 +18,13 @@ export class Filters extends React.Component {
 		  			<span className='count' >{quantity + (quantity <= 1 ? ' item':' items') +' left'} </span>
 		  			<ul className='filters'>
 		  				<li>
-		  				<a href="">All</a>
+		  				<a href="" onClick={() => this.props.filterAll()} >All</a>
 		  				</li>
 		  				<li>
-		  				<a href="">Active</a>
+		  				<a href="" onClick={() => this.props.filterActive()} >Active</a>
 		  				</li>
 		  				<li>
-		  				<a href="">Completed</a>
+		  				<a href="" onClick={() => this.props.filterCompleted()} >Completed</a>
 		  				</li>
 		  			</ul>
 		  		{this.props.articles.length !== quantity ? button:''}			  			

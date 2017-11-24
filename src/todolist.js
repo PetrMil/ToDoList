@@ -12,7 +12,8 @@ export class ToDoList extends React.Component {
 	constructor(props) {
     	super(props);
       	this.state = { 
-    		articles: []
+    		articles: [],
+    		filter: 'all'
     	 };
     	this.onNewItemCreated = this.onNewItemCreated.bind(this);
     	this.itemDone = this.itemDone.bind(this);
@@ -20,6 +21,9 @@ export class ToDoList extends React.Component {
     	this.allCompleted = this.allCompleted.bind(this);
 		this.destroyItem = this.destroyItem.bind(this);
 		this.passInput = this.passInput.bind(this);
+		this.filterAll = this.filterAll.bind(this);
+		this.filterActive = this.filterActive.bind(this);
+		this.filterCompleted = this.filterCompleted.bind(this);
 	}
 
 	
@@ -105,15 +109,55 @@ export class ToDoList extends React.Component {
 		})		
 	}	
 
+	filterAll() {
+		this.setState({
+			filter: 'all'
+		})
+		console.log('all');	
+	}
+
+	filterActive() {
+		this.setState({
+			filter: 'active'
+		})
+		console.log('active');	
+	}	
+
+	filterCompleted() {
+		this.setState({
+			filter: 'completed'
+		})	
+		console.log('completed');
+	}
+
   	render() {
+
+  		var articles; 
+
+  		if (this.state.filter === 'all') {
+			articles = <FullList articles={this.state.articles} passInput={this.passInput} itemDone={this.itemDone} destroyItem={this.destroyItem} />
+  		}
+
+		if (this.state.filter === 'active') {
+			articles = this.state.articles.filter((article) => {
+			return article.completed === false
+		})
+		}
+
+		if (this.state.filter === 'completed') {
+			articles = this.state.articles.filter((article) => {
+			return article.completed === true
+		})
+		}
+		
   		return(
 			<div>
 				<h1>todos</h1>
 				<div className='container'>
 				  	<div className='my-list'>
 				  		<InputField onChange={this.onNewItemCreated} allCompleted={this.allCompleted} />
-				  		<FullList articles={this.state.articles} passInput={this.passInput} itemDone={this.itemDone} destroyItem={this.destroyItem} />
-				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} listCompleted={this.clearCompleted} />:''}
+				  		{articles}
+				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} listCompleted={this.clearCompleted} filterAll={this.filterAll} filterActive={this.filterActive} filterCompleted={this.filterCompleted} />:''}
 				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}
 					</div>
 				</div>
