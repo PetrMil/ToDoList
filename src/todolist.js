@@ -132,22 +132,25 @@ export class ToDoList extends React.Component {
 
   	render() {
 
-  		var articles; 
+		var articles; 
 
-  		if (this.state.filter === 'all') {
-			articles = <FullList articles={this.state.articles} passInput={this.passInput} itemDone={this.itemDone} destroyItem={this.destroyItem} />
-  		}
+		if (this.state.filter === 'all') { 
+			articles = this.state.articles
+			console.log('all') 
+		} 
 
-		if (this.state.filter === 'active') {
-			articles = this.state.articles.filter((article) => {
-			return article.completed === false
+		if (this.state.filter === 'active') { 
+			articles = this.state.articles.filter((article) => { 
+				return article.completed === false 
 		})
-		}
+			console.log('active') 
+		} 
 
-		if (this.state.filter === 'completed') {
-			articles = this.state.articles.filter((article) => {
-			return article.completed === true
-		})
+		if (this.state.filter === 'completed') { 
+			articles = this.state.articles.filter((article) => { 
+				return article.completed === true 
+		}) 
+			console.log('completed')
 		}
 		
   		return(
@@ -156,7 +159,7 @@ export class ToDoList extends React.Component {
 				<div className='container'>
 				  	<div className='my-list'>
 				  		<InputField onChange={this.onNewItemCreated} allCompleted={this.allCompleted} />
-				  		{articles}
+				  		<FullList articles={articles} passInput={this.passInput} itemDone={this.itemDone} destroyItem={this.destroyItem} />
 				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} listCompleted={this.clearCompleted} filterAll={this.filterAll} filterActive={this.filterActive} filterCompleted={this.filterCompleted} />:''}
 				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}
 					</div>
