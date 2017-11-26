@@ -160,7 +160,7 @@ export class ToDoList extends React.Component {
 				  	<div className='my-list'>
 				  		<InputField onChange={this.onNewItemCreated} allCompleted={this.allCompleted} />
 				  		<FullList articles={articles} passInput={this.passInput} itemDone={this.itemDone} destroyItem={this.destroyItem} />
-				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} listCompleted={this.clearCompleted} filterAll={this.filterAll} filterActive={this.filterActive} filterCompleted={this.filterCompleted} />:''}
+				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} filter={this.state.filter} listCompleted={this.clearCompleted} filterAll={this.filterAll} filterActive={this.filterActive} filterCompleted={this.filterCompleted} />:''}
 				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}
 					</div>
 				</div>

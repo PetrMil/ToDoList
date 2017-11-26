@@ -4,7 +4,10 @@ import { ToDoList } from '../todolist.js'
 export class Filters extends React.Component { 
 
 	constructor(props) { 
-		super(props); 
+		super(props);
+		this.state = {
+			chosen: false
+		}
 		this.handleAll = this.handleAll.bind(this); 
 		this.handleActive = this.handleActive.bind(this); 
 		this.handleCompleted = this.handleCompleted.bind(this); 
@@ -12,7 +15,7 @@ export class Filters extends React.Component {
 
 	handleAll(e) { 
 		e.preventDefault(); 
-		this.props.filterAll(); 
+		this.props.filterAll();
 	} 
 
 	handleActive(e) { 
@@ -22,7 +25,7 @@ export class Filters extends React.Component {
 
 	handleCompleted(e) { 
 		e.preventDefault(); 
-		this.props.filterCompleted(); 
+		this.props.filterCompleted();
 	} 
 
 	render() { 
@@ -41,13 +44,13 @@ export class Filters extends React.Component {
 					<span className='count' >{quantity + (quantity <= 1 ? ' item':' items') +' left'} </span> 
 					<ul className='filters'> 
 						<li> 
-							<a href="#" onClick={this.handleAll} >All</a> 
+							<a href="#" onClick={this.handleAll} className={this.props.filter === 'all' ? 'chosen': 'non-chosen'} >All</a> 
 						</li> 
 						<li> 
-							<a href="#" onClick={this.handleActive} >Active</a> 
+							<a href="#" onClick={this.handleActive} className={this.props.filter === 'active' ? 'chosen': 'non-chosen'} >Active</a> 
 						</li> 
 						<li> 
-							<a href="#" onClick={this.handleCompleted} >Completed</a> 
+							<a href="#" onClick={this.handleCompleted} className={this.props.filter === 'completed' ? 'chosen': 'non-chosen'} >Completed</a> 
 						</li> 
 					</ul> 
 					{this.props.articles.length !== quantity ? button:''} 

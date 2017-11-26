@@ -143,7 +143,7 @@ li {
     display: block;
     padding-bottom: 18px;
     padding-left: 60px;
-    line-height: 24px;
+    line-height: 21px;
 }
 
 .todo-list li .toggle:after {
@@ -159,37 +159,43 @@ li {
     line-height: 1.4em;
     height: 40px;
     position: relative;
-    margin-top: 3px;
+    margin-top: 2px;
     border-top: 1px solid #e6e6e6;
-    font-color: #777;
     text-align: center;
 }
 
 .filters {
     display: inline-block;
     width: 300px;
-    margin: 12px auto;
+    margin: 9px auto;
  }
+
 .filters li {
     display: inline-block;
     padding-left: 2px;
    
 }
+
 .filters li a {
     color: #777;
     font-size: 14px;
-    margin: 3px;
-    padding: 8px;
+    margin: 4px;
     text-decoration: none;
-    border: 1px solid transparent;
+    padding: 3px 7px;
+}
+
+.chosen {
+    border: 1px solid ;
+    border-color: rgba(175, 47, 47, 0.2); 
     border-radius: 3px;
 }
 
-.filters li a.selected {
-    border-color: rgba(175, 47, 47, 0.2);
-}
+.non-chosen {
+    border: 1px solid transparent;
+    border-radius: 3px;     
+} 
 
-.up-footer li a:hover {
+.filters li a:hover {
     border: 1px solid ;
     border-color: rgba(175, 47, 47, 0.1); 
     border-radius: 3px;
@@ -212,7 +218,7 @@ li {
 }
 .count {
     position: absolute;
-    margin-top: 11px;
+    margin-top: 9px;
     margin-left: 15px;
     left: 0;
 }

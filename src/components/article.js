@@ -38,7 +38,7 @@ export class Article extends React.Component {
 			<button className='destroy' onClick={() => this.props.destroyItem(this.props.article)}></button>
 			]
 		return(
-			<li className='article'>
+			<li className='article' >
 				<input type='checkbox' className='toggle' checked={this.props.article.completed} onChange={() => this.props.itemDone(this.props.article)} /> 
 		  		{title}
 		  		
