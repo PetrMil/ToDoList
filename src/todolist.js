@@ -21,9 +21,6 @@ export class ToDoList extends React.Component {
     	this.allCompleted = this.allCompleted.bind(this);
 		this.destroyItem = this.destroyItem.bind(this);
 		this.passInput = this.passInput.bind(this);
-		this.filterAll = this.filterAll.bind(this);
-		this.filterActive = this.filterActive.bind(this);
-		this.filterCompleted = this.filterCompleted.bind(this);
 	}
 
 	
@@ -96,12 +93,18 @@ export class ToDoList extends React.Component {
 		})		
 	}
 
-	passInput(newInput) {
+	passInput(element) {
+
+		if (!element.title) {
+			this.destroyItem(element)
+			return
+		}
+
 		var newArticles = this.state.articles.map((b) =>{ 
 			return {
-			title: newInput,
-    		completed: b.completed,
-    		id: b.id
+				title: element.id === b.id ? element.title : b.title,
+	    		completed: b.completed,
+	    		id: b.id
 			}
 		})
 		this.setState({
@@ -109,25 +112,11 @@ export class ToDoList extends React.Component {
 		})		
 	}	
 
-	filterAll() {
+	handleFilter(filter) {
+		
 		this.setState({
-			filter: 'all'
+			filter: filter
 		})
-		console.log('all');	
-	}
-
-	filterActive() {
-		this.setState({
-			filter: 'active'
-		})
-		console.log('active');	
-	}	
-
-	filterCompleted() {
-		this.setState({
-			filter: 'completed'
-		})	
-		console.log('completed');
 	}
 
   	render() {
@@ -136,21 +125,14 @@ export class ToDoList extends React.Component {
 
 		if (this.state.filter === 'all') { 
 			articles = this.state.articles
-			console.log('all') 
-		} 
-
-		if (this.state.filter === 'active') { 
+		} else if (this.state.filter === 'active') { 
 			articles = this.state.articles.filter((article) => { 
 				return article.completed === false 
-		})
-			console.log('active') 
-		} 
-
-		if (this.state.filter === 'completed') { 
+			})
+		} else if (this.state.filter === 'completed') { 
 			articles = this.state.articles.filter((article) => { 
 				return article.completed === true 
-		}) 
-			console.log('completed')
+			}) 
 		}
 		
   		return(
@@ -160,7 +142,7 @@ export class ToDoList extends React.Component {
 				  	<div className='my-list'>
 				  		<InputField onChange={this.onNewItemCreated} allCompleted={this.allCompleted} />
 				  		<FullList articles={articles} passInput={this.passInput} itemDone={this.itemDone} destroyItem={this.destroyItem} />
-				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} filter={this.state.filter} listCompleted={this.clearCompleted} filterAll={this.filterAll} filterActive={this.filterActive} filterCompleted={this.filterCompleted} />:''}
+				  		{this.state.articles.length > 0 ? <Filters articles={this.state.articles} filter={this.state.filter} listCompleted={this.clearCompleted} handleFilter={(filter) => this.handleFilter(filter)} />:''}
 				  		{this.state.articles.length > 0 ? <div className='three-line'></div>:''}
 					</div>
 				</div>
