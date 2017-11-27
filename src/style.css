@@ -167,21 +167,17 @@ li {
 .filters {
     display: inline-block;
     width: 300px;
-    margin: 9px auto;
+    margin: 3px auto;
  }
 
-.filters li {
-    display: inline-block;
-    padding-left: 2px;
-   
-}
-
-.filters li a {
+.filters li  {
     color: #777;
     font-size: 14px;
     margin: 4px;
     text-decoration: none;
-    padding: 3px 7px;
+    padding: 2px 7px 1px 8px;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .chosen {
@@ -195,7 +191,7 @@ li {
     border-radius: 3px;     
 } 
 
-.filters li a:hover {
+.filters li:hover {
     border: 1px solid ;
     border-color: rgba(175, 47, 47, 0.1); 
     border-radius: 3px;

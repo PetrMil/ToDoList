@@ -19,7 +19,7 @@ export class Filters extends React.Component {
 					<span className='count' >{quantity + (quantity <= 1 ? ' item':' items') +' left'} </span> 
 					<ul className='filters'> 
 						{
-							['all', 'active', 'completed'].map((element) => {
+							['All', 'Active', 'Completed'].map((element) => {
 								return <li  onClick={() => this.props.handleFilter(element)} className={this.props.filter === element ? 'chosen': 'non-chosen'} >{element}</li> 
 							})
 						}

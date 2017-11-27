@@ -13,7 +13,7 @@ export class ToDoList extends React.Component {
     	super(props);
       	this.state = { 
     		articles: [],
-    		filter: 'all'
+    		filter: 'All'
     	 };
     	this.onNewItemCreated = this.onNewItemCreated.bind(this);
     	this.itemDone = this.itemDone.bind(this);
@@ -123,13 +123,13 @@ export class ToDoList extends React.Component {
 
 		var articles; 
 
-		if (this.state.filter === 'all') { 
+		if (this.state.filter === 'All') { 
 			articles = this.state.articles
-		} else if (this.state.filter === 'active') { 
+		} else if (this.state.filter === 'Active') { 
 			articles = this.state.articles.filter((article) => { 
 				return article.completed === false 
 			})
-		} else if (this.state.filter === 'completed') { 
+		} else if (this.state.filter === 'Completed') { 
 			articles = this.state.articles.filter((article) => { 
 				return article.completed === true 
 			}) 

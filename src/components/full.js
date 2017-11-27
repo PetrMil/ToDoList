@@ -26,8 +26,8 @@ export class FullList extends React.Component {
 
 	render() {
 		var article = this.state.editArticle;
-		var { articles, itemDone, passInput, destroyItem } = this.props
-		var html = articles.map((b) =>{
+		var { articles, itemDone, passInput, destroyItem } = this.props;
+		var html = articles.map((b) => {
 			var editMode = b.id === this.state.editArticle
 			return (
 				<Article article={b} key={b.id} itemDone={itemDone} enterEditMode={(a) => this.enterEditMode(a)} editMode={editMode} passInput={(text) => this.handlePassInput(text)} destroyItem={destroyItem} />
